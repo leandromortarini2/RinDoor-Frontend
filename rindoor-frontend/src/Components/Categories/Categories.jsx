@@ -9,8 +9,8 @@ import Link from "next/link";
 
 export const Categories = () => {
   return (
-    <div className="w-full xl:min-h-[300px] flex justify-evenly items-center">
-      <div className="w-[250px] xl:h-[250px]  bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000">
+    <div className="w-full xl:min-h-[350px] flex flex-col md:flex-row justify-evenly items-center ">
+      <div className="w-32 h-32  xl:w-[250px] xl:h-[250px]  bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
         <Link href="">
           <button>
             <Image
@@ -21,7 +21,7 @@ export const Categories = () => {
           </button>
         </Link>
       </div>
-      <div className="w-[250px] xl:h-[250px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 ">
+      <div className="w-32 h-32  xl:w-[250px] xl:h-[250px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5 ">
         <Link href="">
           <button>
             {" "}
@@ -33,7 +33,8 @@ export const Categories = () => {
           </button>
         </Link>
       </div>
-      <div className="w-[250px] xl:h-[250px]  bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000">
+      {/* electricidad container */}
+      <div className="w-32 h-32  xl:w-[250px] xl:h-[250px]  bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
         {" "}
         <Link href="">
           <button>
@@ -41,12 +42,12 @@ export const Categories = () => {
             <Image
               src={electricidad}
               alt=""
-              className="w-40 ShadowEffectCards duration-1000 "
+              className="w-20 xl:w-40 ShadowEffectCards duration-1000 "
             />
           </button>
         </Link>
       </div>
-      <div className="w-[250px] xl:h-[250px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000">
+      <div className=" w-32 h-32  xl:w-[250px] xl:h-[250px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5 mb-5">
         {" "}
         <Link href="">
           {" "}
