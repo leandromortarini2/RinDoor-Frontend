@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import style from "./Carousel.module.css";
-import Portada1 from "@/assets/portada1.png";
-import Portada2 from "@/assets/portada2.png";
-import Portada3 from "@/assets/portada3.png";
-import Portada4 from "@/assets/portada4.png";
+
 import Image from "next/image";
 
 function Carousel() {
-  const images = [Portada4, Portada1, Portada2, Portada3];
+  const images = ['https://i.ibb.co/483JRrD/Rindoor-7.png', 'https://i.ibb.co/Ycs8Mx0/Rindoor-6.png', 'https://i.ibb.co/PWB65S7/Rindoor-5.png', 'https://i.ibb.co/4MWVLBc/Rindoor-4.png'];
   const [imgIndex, setImgIndex] = useState(0);
 
   function next() {
@@ -25,7 +22,7 @@ function Carousel() {
 
   return (
     <div className="w-full h-[370px] ">
-      <Image
+      <img
         src={images[imgIndex]}
         className={`${style.img} ${style.fade}`}
         alt={`Slide ${imgIndex}`}
