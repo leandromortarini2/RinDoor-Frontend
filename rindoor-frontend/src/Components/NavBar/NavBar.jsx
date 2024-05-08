@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import MarcaImg from "@/assets/linkedin.jpg";
 import Login from "@/assets/login.svg";
 import X from "@/assets/x.svg";
 import { useState } from "react";
