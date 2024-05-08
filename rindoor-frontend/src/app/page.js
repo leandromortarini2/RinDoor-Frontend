@@ -9,7 +9,7 @@ export default function Home() {
       {/* <div className="w-full bg-yellow-600 h-[300px]"></div> */}
 
       <Carousel />
-      {/* <Categories /> */}
+      <Categories />
     </div>
   );
 }
