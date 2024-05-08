@@ -1,62 +1,58 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-// imagenes
-import ConstructorImg from "@/assets/constructor.jpg";
-import pintor from "@/assets/pintura.png";
-import electricidad from "@/assets/electricidad.png";
-import plomeria from "@/assets/plomeria.png";
 import Image from "next/image";
 import Link from "next/link";
 
 export const Categories = () => {
   return (
     <div className="w-full xl:min-h-[350px] flex flex-col md:flex-row justify-evenly items-center ">
-      <div className="w-32 h-32  xl:w-[250px] xl:h-[250px]  bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
+      <div className="w-32 h-32 xl:w-[200px] xl:h-[200px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
         <Link href="">
           <button>
-            <Image
-              src={ConstructorImg}
+            <img
+              src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715197035/Proyecto%20FInal/g4sd4zs4ovxeyfbpuhnn.png"
               alt=""
-              className="w-50  ShadowEffectCards duration-1000 "
+              className="w-50 h-24 xl:h-40 ShadowEffectCards duration-1000 "
             />
           </button>
         </Link>
       </div>
-      <div className="w-32 h-32  xl:w-[250px] xl:h-[250px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5 ">
+      <div className="w-32 h-32 xl:w-[200px] xl:h-[200px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5 ">
         <Link href="">
           <button>
             {" "}
-            <Image
-              src={pintor}
+            <img
+              src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715197035/Proyecto%20FInal/sakieeqisdacuybr5f49.png"
               alt=""
-              className="w-50 ShadowEffectCards duration-1000 "
+              className="w-50 h-24 xl:h-40 ShadowEffectCards duration-1000 "
             />
           </button>
         </Link>
       </div>
       {/* electricidad container */}
-      <div className="w-32 h-32  xl:w-[250px] xl:h-[250px]  bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
+      <div className="w-32 h-32 xl:w-[200px] xl:h-[200px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
         {" "}
         <Link href="">
           <button>
             {" "}
-            <Image
-              src={electricidad}
+            <img
+              src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715197035/Proyecto%20FInal/egicfd28d0wy9ugmsnh6.png"
               alt=""
-              className="w-20 xl:w-40 ShadowEffectCards duration-1000 "
+              className="w-20 h-24 xl:h-40 xl:w-40 ShadowEffectCards duration-1000 "
             />
           </button>
         </Link>
       </div>
-      <div className=" w-32 h-32  xl:w-[250px] xl:h-[250px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5 mb-5">
+      <div className="w-32 h-32 xl:w-[200px] xl:h-[200px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5 mb-5">
         {" "}
         <Link href="">
           {" "}
           <button>
             {" "}
-            <Image
-              src={plomeria}
+            <img
+              src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715197035/Proyecto%20FInal/oprlgxzvykf5mfxakwrn.png"
               alt=""
-              className="w-50 ShadowEffectCards duration-1000 "
+              className="w-50 h-24 xl:h-40 ShadowEffectCards duration-1000 "
             />
           </button>
         </Link>
