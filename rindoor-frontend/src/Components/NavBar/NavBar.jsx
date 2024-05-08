@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import MarcaImg from "@/assets/linkedin.jpg";
 import Login from "@/assets/login.svg";
 import X from "@/assets/x.svg";
 import { useState } from "react";
@@ -82,7 +81,7 @@ export const NavBar = () => {
       {/* CONTAINER FLOTANTE */}
       {login === true ? (
         <div className="w-full flex justify-end">
-          <div className="w-1/4 h-40 bg-slate-600 z-20 flex flex-col justify-evenly items-center">
+          <div className="hidden w-1/4 h-40 bg-slate-600 z-20 md:flex flex-col justify-evenly items-center absolute">
             <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
               Log In
             </button>
@@ -92,7 +91,7 @@ export const NavBar = () => {
       {/*  */}
       {/* CONTAINER MENU BURGER */}
       {burger === true ? (
-        <div className="w-full bg-slate-600 min-h-40 sm:hidden">
+        <div className="w-full bg-slate-600 min-h-40 sm:hidden absolute">
           <div className="w-full flex flex-col justify-evenly items-center h-[150px] ">
             {" "}
             <button className="text-md  text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
