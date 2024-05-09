@@ -35,3 +35,10 @@ body {
 .ShadowEffect:hover {
   filter: drop-shadow(0px 0px 3px yellow);
 }
+
+.FromCreatePost1 {
+  border-radius: 50px 0 0 50px;
+}
+.FromCreatePost2 {
+  border-radius: 0 50px 50px 0;
+}

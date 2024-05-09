@@ -5,6 +5,7 @@ import Login from "@/assets/login.svg";
 import X from "@/assets/x.svg";
 import { useState } from "react";
 import BurgerImg from "@/assets/burger.svg";
+import Link from "next/link";
 
 export const NavBar = () => {
   const [login, setLogin] = useState(false);
@@ -35,7 +36,7 @@ export const NavBar = () => {
         </div>
 
         {/* BURGER COMPONENT*/}
-        <div className="w-full flex items-center justify-end sm:hidden">
+        <div className="w-full flex items-center justify-end lg:hidden">
           <button onClick={handleBurger}>
             <Image
               src={BurgerImg}
@@ -46,19 +47,32 @@ export const NavBar = () => {
         </div>
 
         {/* CONTAINER BOTONERA */}
-        <div className="hidden  w-1/2 h-14 md:flex justify-evenly items-center">
-          <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
-            Home
-          </button>
-          <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
-            Published Works
-          </button>
-          <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
-            Subscriptions
-          </button>
+        <div className="hidden  w-1/2 h-14 lg:flex justify-evenly items-center">
+          <Link href="/">
+            <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
+              Home
+            </button>
+          </Link>
+          <Link href="">
+            {" "}
+            <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
+              Published Works
+            </button>
+          </Link>
+          <Link href="">
+            <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
+              Subscriptions
+            </button>
+          </Link>
+
+          <Link href="/createjob">
+            <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
+              Create job
+            </button>
+          </Link>
         </div>
         {/* CONTAINER LOGIN */}
-        <div className="hidden  w-1/4 h-14 md:flex justify-evenly items-center">
+        <div className="hidden  w-1/4 h-14 lg:flex justify-evenly items-center">
           {login === false ? (
             <button onClick={handleLogin}>
               <Image
@@ -82,34 +96,53 @@ export const NavBar = () => {
       {login === true ? (
         <div className="w-full flex justify-end">
           <div className="hidden w-1/4 h-40 bg-slate-600 z-20 md:flex flex-col justify-evenly items-center absolute">
-            <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
-              Log In
-            </button>
+            <Link href="">
+              <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
+                Log In
+              </button>
+            </Link>
           </div>
         </div>
       ) : null}{" "}
       {/*  */}
       {/* CONTAINER MENU BURGER */}
       {burger === true ? (
-        <div className="w-full bg-slate-600 min-h-40 sm:hidden absolute">
+        <div className="w-full bg-slate-600 min-h-40 lg:hidden absolute">
           <div className="w-full flex flex-col justify-evenly items-center h-[150px] ">
             {" "}
-            <button className="text-md  text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
-              Home
-            </button>
-            <button className="text-md text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
-              Published Works
-            </button>
-            <button className="text-md text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
-              Subscriptions
-            </button>
+            <Link href="/">
+              <button className="text-md  text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
+                Home
+              </button>
+            </Link>
+            {/*  */}
+            <Link href="">
+              <button className="text-md text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
+                Published Works
+              </button>
+            </Link>
+            <Link href="">
+              {" "}
+              <button className="text-md text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
+                Subscriptions
+              </button>
+            </Link>
+            <Link href="/createjob">
+              {" "}
+              <button className="text-md text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
+                Create job
+              </button>
+            </Link>
           </div>
 
           <div className="w-full flex  justify-evenly items-center h-[100px] ">
-            <button className="w-[80px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500">
+            <Link href="">
               {" "}
-              Log In
-            </button>
+              <button className="w-[80px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500">
+                {" "}
+                Log In
+              </button>
+            </Link>
           </div>
         </div>
       ) : null}
