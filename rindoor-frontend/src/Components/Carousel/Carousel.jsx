@@ -27,12 +27,12 @@ function Carousel() {
         className={`${style.img} ${style.fade}`}
         alt={`Slide ${imgIndex}`}
       />
-      <a className={style.prev} onClick={back}>
+      {/* <a className={style.prev} onClick={back}>
         &#10094;
-      </a>
-      <a className={style.next} onClick={next}>
+      </a> */}
+      {/* <a className={style.next} onClick={next}>
         &#10095;
-      </a>
+      </a> */}
       {/* <div className={style.dotContainer}>
         {images.map((_, index) => (
           <span
