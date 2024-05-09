@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 import Image from "next/image";
@@ -30,9 +31,14 @@ export const NavBar = () => {
 
         <div className="w-1/2  sm:w-1/4 h-14 flex items-center justify-center">
           {/* <Image src={MarcaImg} alt="" className=" w-6 md:w-8 mr-2" /> */}
-          <h1 className=" md:text-2xl text-yellow-500 font-semibold  ">
+          {/* <h1 className=" md:text-2xl text-yellow-500 font-semibold  ">
             Rin|Door
-          </h1>
+          </h1> */}
+          <img
+            src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715277145/Proyecto%20FInal/ltpvsdwg7xfds7fzm1ho.png"
+            alt=""
+            className="w-20 md:w-28 "
+          />
         </div>
 
         {/* BURGER COMPONENT*/}

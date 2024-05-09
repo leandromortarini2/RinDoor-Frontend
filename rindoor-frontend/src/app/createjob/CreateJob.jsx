@@ -42,6 +42,7 @@ const CreateJob = () => {
     // await postNewPublic(postState);
     alert("envio con exito");
     console.log(postState);
+    window.location.href = "/";
   };
 
   return (
