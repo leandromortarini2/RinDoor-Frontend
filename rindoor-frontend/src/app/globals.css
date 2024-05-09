@@ -32,8 +32,8 @@ body {
   }
 }
 
-.ShadowEffect:hover {
-  filter: drop-shadow(0px 0px 3px yellow);
+.ShadowEffect {
+  filter: drop-shadow(10px 10px 10px black);
 }
 
 .FromCreatePost1 {
