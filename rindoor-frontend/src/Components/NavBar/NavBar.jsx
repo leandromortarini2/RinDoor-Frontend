@@ -30,10 +30,6 @@ export const NavBar = () => {
         {/* CONTAINER MARCA/LOGO */}
 
         <div className="w-1/2  sm:w-1/4 h-14 flex items-center justify-center">
-          {/* <Image src={MarcaImg} alt="" className=" w-6 md:w-8 mr-2" /> */}
-          {/* <h1 className=" md:text-2xl text-yellow-500 font-semibold  ">
-            Rin|Door
-          </h1> */}
           <img
             src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715277145/Proyecto%20FInal/ltpvsdwg7xfds7fzm1ho.png"
             alt=""
@@ -59,15 +55,15 @@ export const NavBar = () => {
               Home
             </button>
           </Link>
-          <Link href="">
-            {" "}
+          <Link href="/publishedworks">
+            {""}
             <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
               Published Works
             </button>
           </Link>
-          <Link href="">
+          <Link href="/about">
             <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
-              Subscriptions
+              About
             </button>
           </Link>
 
@@ -113,7 +109,7 @@ export const NavBar = () => {
       {/*  */}
       {/* CONTAINER MENU BURGER */}
       {burger === true ? (
-        <div className="w-full bg-slate-600 min-h-40 lg:hidden absolute">
+        <div className="w-full bg-slate-600 min-h-40 lg:hidden absolute z-20">
           <div className="w-full flex flex-col justify-evenly items-center h-[150px] ">
             {" "}
             <Link href="/">
@@ -127,10 +123,10 @@ export const NavBar = () => {
                 Published Works
               </button>
             </Link>
-            <Link href="">
+            <Link href="/about">
               {" "}
               <button className="text-md text-yellow-500 font-medium duration-1000 hover:text-yellow-300 hover:scale-110">
-                Subscriptions
+                About
               </button>
             </Link>
             <Link href="/createjob">
