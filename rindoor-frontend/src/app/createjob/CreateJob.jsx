@@ -1,7 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { postNewPublic } from "@/helpers/postNewPost";
+import { validationsNewPost } from "@/helpers/validationsForm";
 
 const CreateJob = () => {
   const [postState, setPostState] = useState({
@@ -10,6 +11,19 @@ const CreateJob = () => {
     description: "",
     payment: "",
   });
+
+  // VALIDACIONES
+  const [errorForm, setErrorForm] = useState({
+    title: "",
+    category: "",
+    description: "",
+    payment: "",
+  });
+
+  useEffect(() => {
+    const errors = validationsNewPost(postState);
+    setErrorForm(errors);
+  }, [postState]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -61,6 +75,11 @@ const CreateJob = () => {
               className="w-1/2 h-10 bg-transparent border-b-2  border-yellow-500   mt-3"
               placeholder="Title..."
             />
+            {errorForm && errorForm.title && (
+              <p className="text-yellow-700  text-md text-center ">
+                {errorForm.title}
+              </p>
+            )}
             <select
               name="category"
               value={postState.category}
@@ -82,15 +101,26 @@ const CreateJob = () => {
               <option value="painter" className="bg-gray-900">
                 Painter
               </option>
+              {errorForm && errorForm.category && (
+                <p className="text-yellow-700  text-md text-center ">
+                  {errorForm.category}
+                </p>
+              )}
             </select>
-            <input
+            <textarea
               type="text"
               name="description"
               value={postState.description}
               onChange={handleOnChange}
-              className="w-1/2 h-10 bg-transparent border-b-2  border-yellow-500    mt-3"
+              className="w-1/2 h-20 bg-transparent border-b-2  border-yellow-500    mt-3"
               placeholder="Description..."
             />
+            {errorForm && errorForm.description && (
+              <p className="text-yellow-700  text-md text-center ">
+                {errorForm.description}
+              </p>
+            )}
+
             <input
               type="text"
               name="payment"
@@ -99,9 +129,17 @@ const CreateJob = () => {
               className="w-1/2 h-10 bg-transparent border-b-2  border-yellow-500 mt-3"
               placeholder="Maximum payment..."
             />
+
+            {errorForm && errorForm.payment && (
+              <p className="text-yellow-700  text-md text-center ">
+                {errorForm.payment}
+              </p>
+            )}
+
             <button
+              disabled={Object.keys(errorForm).length > 0}
               type="submit"
-              className="w-[80px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 mt-3 mb-3"
+              className="w-[80px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 mt-3 mb-3 disabled:bg-gray-500 hover:disabled:text-gray-700"
             >
               Post
             </button>
