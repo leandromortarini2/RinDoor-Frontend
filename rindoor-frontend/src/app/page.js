@@ -1,5 +1,6 @@
 "use client";
 import Carousel from "@/Components/Carousel/Carousel";
+import Carrusel2 from "@/Components/Carousel/Carrusel2/Carrusel2";
 import { Categories } from "@/Components/Categories/Categories";
 
 export default function Home() {
@@ -15,7 +16,8 @@ export default function Home() {
           Donde los profesionales te buscan a ti
         </h2>
       </div>
-      <Carousel />
+      <Carrusel2/>
+
       <Categories />
     </div>
   );
