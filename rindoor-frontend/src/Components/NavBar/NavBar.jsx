@@ -7,21 +7,27 @@ import X from "@/assets/x.svg";
 import { useState } from "react";
 import BurgerImg from "@/assets/burger.svg";
 import Link from "next/link";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export const NavBar = () => {
-  const [login, setLogin] = useState(false);
+  const [loginIcon, setLoginIcon] = useState(false);
+
+  const { user } = useUser();
 
   const [burger, setBurger] = useState(false);
 
+  // manejador de hamburgesa
   const handleBurger = (event) => {
     event.preventDefault();
 
     setBurger(!burger);
   };
 
-  const handleLogin = (event) => {
+  // manejador de icono de login = logo y X
+  const handleLoginIcon = (event) => {
     event.preventDefault();
-    setLogin(!login);
+
+    setLoginIcon(!loginIcon);
   };
 
   return (
@@ -75,34 +81,51 @@ export const NavBar = () => {
         </div>
         {/* CONTAINER LOGIN */}
         <div className="hidden  w-1/4 h-14 lg:flex justify-evenly items-center">
-          {login === false ? (
-            <button onClick={handleLogin}>
+          {loginIcon === false ? (
+            <button onClick={handleLoginIcon}>
               <Image
                 src={Login}
                 alt=""
-                className="w-8 mr-2 duration-1000 ShadowEffect "
+                className="w-8 mr-2 duration-1000 ShadowEffect2 "
               />
             </button>
           ) : (
-            <button onClick={handleLogin}>
+            <button onClick={handleLoginIcon}>
               <Image
                 src={X}
                 alt=""
-                className="w-8 mr-2 duration-1000  ShadowEffect "
+                className="w-8 mr-2 duration-1000  ShadowEffect2 "
               />
             </button>
           )}
         </div>
       </div>
       {/* CONTAINER FLOTANTE */}
-      {login === true ? (
+      {/* CONTAINER FLOTANTE */}
+      {/* CONTAINER FLOTANTE */}
+      {loginIcon === true ? (
         <div className="w-full flex justify-end">
-          <div className="hidden w-1/4 h-40 bg-slate-600 z-20 md:flex flex-col justify-evenly items-center absolute">
-            <Link href="">
-              <button className="xl:text-xl text-yellow-500 font-semibold duration-1000 hover:text-yellow-300 hover:scale-110">
-                Log In
-              </button>
-            </Link>
+          <div className="hidden w-1/4 min-h-20 bg-gray-700 rounded-b-xl z-20 md:flex flex-col justify-evenly items-center absolute ">
+            {user ? (
+              <>
+                <Link href="/profile">
+                  <button className="w-[200px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 m-3">
+                    Profile
+                  </button>
+                </Link>
+                <Link href="/api/auth/logout">
+                  <button className="w-[200px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 m-3">
+                    Logout
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <Link href="/api/auth/login">
+                <button className="w-[200px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 m-3">
+                  Login
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       ) : null}{" "}
@@ -138,13 +161,26 @@ export const NavBar = () => {
           </div>
 
           <div className="w-full flex  justify-evenly items-center h-[100px] ">
-            <Link href="">
-              {" "}
-              <button className="w-[80px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500">
-                {" "}
-                Log In
-              </button>
-            </Link>
+            {user ? (
+              <>
+                <Link href="/profile">
+                  <button className="w-[100px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 m-3">
+                    Profile
+                  </button>
+                </Link>
+                <Link href="/api/auth/logout">
+                  <button className="w-[100px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 m-3">
+                    Logout
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <Link href="/api/auth/login">
+                <button className="w-[100px] h-[40px] xl:text-xl text-gray-700 border p-1 block rounded-lg border-yellow-500 font-semibold duration-1000 bg-yellow-500 hover:bg-gray-700  hover:text-yellow-500 m-3">
+                  Login
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       ) : null}
