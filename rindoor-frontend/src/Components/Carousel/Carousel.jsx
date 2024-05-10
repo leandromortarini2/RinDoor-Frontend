@@ -4,7 +4,12 @@ import style from "./Carousel.module.css";
 import Image from "next/image";
 
 function Carousel() {
-  const images = ['https://i.ibb.co/483JRrD/Rindoor-7.png', 'https://i.ibb.co/Ycs8Mx0/Rindoor-6.png', 'https://i.ibb.co/PWB65S7/Rindoor-5.png', 'https://i.ibb.co/4MWVLBc/Rindoor-4.png'];
+  const images = [
+    "https://i.ibb.co/483JRrD/Rindoor-7.png",
+    "https://i.ibb.co/Ycs8Mx0/Rindoor-6.png",
+    "https://i.ibb.co/PWB65S7/Rindoor-5.png",
+    "https://i.ibb.co/4MWVLBc/Rindoor-4.png",
+  ];
   const [imgIndex, setImgIndex] = useState(0);
 
   function next() {
@@ -21,7 +26,7 @@ function Carousel() {
   }, [imgIndex]);
 
   return (
-    <div className="w-full h-[370px] ">
+    <div className="w-full ">
       <img
         src={images[imgIndex]}
         className={`${style.img} ${style.fade}`}
@@ -47,7 +52,3 @@ function Carousel() {
 }
 
 export default Carousel;
-
-
-
-
