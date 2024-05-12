@@ -1,6 +1,5 @@
 "use client";
-import Carousel from "@/Components/Carousel/Carousel";
-import Carrusel2 from "@/Components/Carousel/Carrusel2/Carrusel2";
+import Carrusel2 from "@/Components/Carrusel2/Carrusel2";
 import { Categories } from "@/Components/Categories/Categories";
 
 export default function Home() {
