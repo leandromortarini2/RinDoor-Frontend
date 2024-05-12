@@ -1,7 +1,5 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
-// import { postNewPublic } from "@/helpers/postNewPost";
 import { validationsNewPost } from "@/helpers/validationsForm";
 import { postNewPublic } from "@/helpers/postNewPost";
 
@@ -12,10 +10,9 @@ const CreateJob = () => {
     base_price: "",
     categoryId: "5cf79221-4ecf-4765-b05e-db5dce9dd3ec",
     userId: "cf804394-620e-4108-bafe-64be9c662a0e",
-    img: "",
+    file: null,
   });
 
-  // VALIDACIONES
   const [errorForm, setErrorForm] = useState({
     name: "",
     description: "",
@@ -28,36 +25,52 @@ const CreateJob = () => {
   }, [postState]);
 
   const handleOnChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, files } = event.target;
 
-    setPostState({
-      ...postState,
-      [name]: value,
-    });
-
-    console.log(postState);
+    if (name === "file") {
+      setPostState({
+        ...postState,
+        file: files[0], // Guardamos el primer archivo seleccionado
+      });
+    } else {
+      setPostState({
+        ...postState,
+        [name]: value,
+      });
+    }
+    console.log(postState.file);
   };
 
-  const handleOnSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await postNewPublic(postState);
-    alert("envio con exito");
-    console.log(postState);
-    window.location.href = "/";
+    const formData = new FormData();
+    formData.append("name", postState.name);
+    formData.append("description", postState.description);
+    formData.append("base_price", postState.base_price);
+    formData.append("categoryId", postState.categoryId);
+    formData.append("userId", postState.userId);
+    formData.append("file", postState.file);
+
+    try {
+      await postNewPublic(formData);
+      alert("Solicitud POST enviada con éxito");
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error al enviar la solicitud POST:", error);
+      alert("Ocurrió un error al enviar la solicitud POST");
+    }
   };
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-start items-center bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300">
       <div className="w-full  min-h-screen  flex flex-col md:flex-row justify-center items-center   ">
         <div className="w-full sm:w-1/2 md:w-1/3 md:h-[400px] lg:h-[450px]  overflow-hidden  sm:flex items-center justify-center shadow-2xl md:shadow-black  md:rounded-l-xl ">
-          {/* IMAGEN */}
           <img
             src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715265952/Proyecto%20FInal/p8glimcbog6egt4nihcg.jpg"
             alt=""
             className="hidden sm:w-full sm:h-full sm:mt-10 sm:rounded-t-xl md:m-0  sm:block  md:rounded-l-xl md:rounded-t-none"
           />
-          {/* IMAGEN MOVIL */}
           <img
             src="https://res.cloudinary.com/dtwiog6cy/image/upload/v1715265952/Proyecto%20FInal/y7vhpbqtveqmyhoamjfi.jpg"
             alt=""
@@ -65,19 +78,13 @@ const CreateJob = () => {
           />
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 h-full flex justify-center items-center  border-b-4 border-yellow-500 sm:border-0 ">
-          {/* FORMULARIO */}
-          {/* FORMULARIO */}
-          {/* FORMULARIO */}
           <form
-            onSubmit={handleOnSubmit}
+            onSubmit={handleSubmit}
             className="w-full h-full md:h-[400px] lg:h-[450px]  bg-gray-900 flex flex-col items-center justify-evenly  shadow-2xl md:shadow-black sm:mb-10 sm:rounded-b-xl  md:rounded-none md:m-0 md:rounded-r-xl"
           >
             <h2 className="text-yellow-500 text-xl xl:text-3xl font-semibold mt-5 ">
               Create a new Post
             </h2>
-            {/* INPUT 1 */}
-            {/* INPUT 1*/}
-            {/* INPUT 1 */}
             <input
               type="text"
               name="name"
@@ -91,41 +98,6 @@ const CreateJob = () => {
                 {errorForm.name}
               </p>
             )}
-            {/* SELECT  */}
-            {/* SELECT */}
-            {/* SELECT  */}
-            {/* <select
-              name="category"
-              value={postState.category}
-              onChange={handleOnChange}
-              className="w-1/3 h-10 bg-transparent border-b-2  border-yellow-500  mt-3"
-            >
-              <option value="" disabled hidden>
-                Category
-              </option>
-              <option value="electricity" className="bg-gray-900">
-                Electricity
-              </option>
-              <option value="construction" className="bg-gray-900">
-                Construction
-              </option>
-              <option value="plumber" className="bg-gray-900">
-                Plumber
-              </option>
-              <option value="painter" className="bg-gray-900">
-                Painter
-              </option>
-              {errorForm && errorForm.category && (
-                <p className="text-yellow-700  text-md text-center ">
-                  {errorForm.category}
-                </p>
-              )}
-            </select> */}
-
-            {/* TEXTAREA  */}
-            {/* TEXTAREA */}
-            {/* TEXTAREA */}
-
             <textarea
               type="text"
               name="description"
@@ -139,9 +111,6 @@ const CreateJob = () => {
                 {errorForm.description}
               </p>
             )}
-            {/* INPUT 2 */}
-            {/* INPUT 2 */}
-            {/* INPUT 2 */}
             <input
               type="text"
               name="base_price"
@@ -150,24 +119,17 @@ const CreateJob = () => {
               className="w-1/2 h-10 bg-transparent border-b-2  border-yellow-500 mt-3"
               placeholder="Base price..."
             />
-
             {errorForm && errorForm.base_price && (
               <p className="text-yellow-700  text-md text-center ">
                 {errorForm.base_price}
               </p>
             )}
-            {/* INPUT 3*/}
-            {/* INPUT 3*/}
-            {/* INPUT 3*/}
-
             <input
               type="file"
-              name="img"
-              value={postState.img}
+              name="file"
               onChange={handleOnChange}
               className="w-3/4 p-2  placeholder:text-sm text-sm "
             />
-
             <button
               disabled={Object.keys(errorForm).length > 0}
               type="submit"
