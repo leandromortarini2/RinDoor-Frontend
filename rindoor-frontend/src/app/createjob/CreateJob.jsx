@@ -3,22 +3,23 @@
 import React, { useState, useEffect } from "react";
 // import { postNewPublic } from "@/helpers/postNewPost";
 import { validationsNewPost } from "@/helpers/validationsForm";
+import { postNewPublic } from "@/helpers/postNewPost";
 
 const CreateJob = () => {
   const [postState, setPostState] = useState({
-    title: "",
-    category: "",
+    name: "",
     description: "",
-    payment: "",
+    base_price: "",
+    categoryId: "5cf79221-4ecf-4765-b05e-db5dce9dd3ec",
+    userId: "cf804394-620e-4108-bafe-64be9c662a0e",
     img: "",
   });
 
   // VALIDACIONES
   const [errorForm, setErrorForm] = useState({
-    title: "",
-    category: "",
+    name: "",
     description: "",
-    payment: "",
+    base_price: "",
   });
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const CreateJob = () => {
   const handleOnSubmit = async (event) => {
     event.preventDefault();
 
-    // await postNewPublic(postState);
+    await postNewPublic(postState);
     alert("envio con exito");
     console.log(postState);
     window.location.href = "/";
@@ -79,21 +80,21 @@ const CreateJob = () => {
             {/* INPUT 1 */}
             <input
               type="text"
-              name="title"
-              value={postState.title}
+              name="name"
+              value={postState.name}
               onChange={handleOnChange}
               className="w-1/2 h-10 bg-transparent border-b-2  border-yellow-500   mt-3"
               placeholder="Title..."
             />
-            {errorForm && errorForm.title && (
+            {errorForm && errorForm.name && (
               <p className="text-yellow-700  text-md text-center ">
-                {errorForm.title}
+                {errorForm.name}
               </p>
             )}
             {/* SELECT  */}
             {/* SELECT */}
             {/* SELECT  */}
-            <select
+            {/* <select
               name="category"
               value={postState.category}
               onChange={handleOnChange}
@@ -119,7 +120,7 @@ const CreateJob = () => {
                   {errorForm.category}
                 </p>
               )}
-            </select>
+            </select> */}
 
             {/* TEXTAREA  */}
             {/* TEXTAREA */}
@@ -143,16 +144,16 @@ const CreateJob = () => {
             {/* INPUT 2 */}
             <input
               type="text"
-              name="payment"
-              value={postState.payment}
+              name="base_price"
+              value={postState.base_price}
               onChange={handleOnChange}
               className="w-1/2 h-10 bg-transparent border-b-2  border-yellow-500 mt-3"
-              placeholder="Maximum payment..."
+              placeholder="Base price..."
             />
 
-            {errorForm && errorForm.payment && (
+            {errorForm && errorForm.base_price && (
               <p className="text-yellow-700  text-md text-center ">
-                {errorForm.payment}
+                {errorForm.base_price}
               </p>
             )}
             {/* INPUT 3*/}

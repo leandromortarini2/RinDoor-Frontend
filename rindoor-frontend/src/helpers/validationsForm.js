@@ -1,16 +1,17 @@
 export const validationsNewPost = (input) => {
   const errors = {};
+  const decimalRegex = `^\d+(\.\d+)?$`;
 
   // VALIDACION TITLE
-  if (!input.title) errors.title = "Debe ingresar un título";
-  else if (input.title.length < 5) {
-    errors.title = "El título debe tener al menos 5 caracteres";
-  } else if (input.title.length > 10) {
-    errors.title = "El título debe tener un máximo de 10 caracteres";
+  if (!input.name) errors.name = "Debe ingresar un título";
+  else if (input.name.length < 5) {
+    errors.name = "El título debe tener al menos 5 caracteres";
+  } else if (input.name.length > 10) {
+    errors.name = "El título debe tener un máximo de 10 caracteres";
   }
 
-  // VALIDACION CATEGORY
-  else if (!input.category) errors.category = "Debe ingresar una categoría";
+  // // VALIDACION CATEGORY
+  // else if (!input.category) errors.category = "Debe ingresar una categoría";
   // VALIDACION DESCRIPTION
   else if (!input.description)
     errors.description = "Debe ingresar una descripción";
@@ -22,10 +23,10 @@ export const validationsNewPost = (input) => {
   }
 
   // VALIDACION PAYMENT
-  else if (!input.payment) {
-    errors.payment = "Debe ingresar un valor";
-  } else if (!/^\d+$/.test(input.payment)) {
-    errors.payment = "El valor debe ser un número";
+  else if (!input.base_price) {
+    errors.base_price = "Debe ingresar un valor";
+    // } else if (decimalRegex.test(input.base_price)) {
+    //   errors.base_price = "El valor debe ser un número";
   }
   return errors;
 };
