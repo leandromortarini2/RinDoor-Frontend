@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Categories = () => {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center mb-10">
       <div className=" w-full flex flex-wrap  justify-evenly items-center mb-5">
         <div className="w-32 h-32 xl:w-[200px] xl:h-[200px] bg-white shadow-2xl shadow-slate-900 overflow-hidden rounded-xl flex items-center justify-center hover:scale-105 duration-1000 mt-5">
           <Link href="">
