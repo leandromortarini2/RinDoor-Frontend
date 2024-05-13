@@ -8,7 +8,9 @@ export const postNewPublic = async (State) => {
       "https://rindoor-backend.onrender.com/jobs",
       State
     );
+    
     return response.data;
+    
   } catch (error) {
     console.error("Error al enviar la solicitud POST:", error);
     throw error;
