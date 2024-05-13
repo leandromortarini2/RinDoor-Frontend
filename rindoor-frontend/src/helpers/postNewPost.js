@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const JOBS_URL = process.env.JOBS_URL;
+const JOBS_URL = process.env.JOBS_URL;
 
 export const postNewPublic = async (State) => {
   try {
@@ -8,9 +8,8 @@ export const postNewPublic = async (State) => {
       "https://rindoor-backend.onrender.com/jobs",
       State
     );
-    
+
     return response.data;
-    
   } catch (error) {
     console.error("Error al enviar la solicitud POST:", error);
     throw error;

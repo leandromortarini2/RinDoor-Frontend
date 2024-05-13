@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { validationsNewPost } from "@/helpers/validationsForm";
 import { postNewPublic } from "@/helpers/postNewPost";
+import { getCategory } from "@/helpers/getCategory";
 
 const CreateJob = () => {
   const [postState, setPostState] = useState({
     name: "",
     description: "",
     base_price: "",
-    categoryId: "278e5cc8-a4c1-4505-b294-aa1bb7df6de2",
+    categoryId: "",
     userId: "e67b6e98-dfd6-4e61-89fb-4d02f7d7940b",
     file: null,
   });
@@ -18,6 +19,21 @@ const CreateJob = () => {
     description: "",
     base_price: "",
   });
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await getCategory();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error al obtener las categorías:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     const errors = validationsNewPost(postState);
@@ -30,7 +46,7 @@ const CreateJob = () => {
     if (name === "file") {
       setPostState({
         ...postState,
-        file: files[0], // Guardamos el primer archivo seleccionado
+        file: files[0],
       });
     } else {
       setPostState({
@@ -38,7 +54,6 @@ const CreateJob = () => {
         [name]: value,
       });
     }
-    console.log(postState.file);
   };
 
   const handleSubmit = async (event) => {
@@ -124,6 +139,22 @@ const CreateJob = () => {
                 {errorForm.base_price}
               </p>
             )}
+
+            <select
+              name="categoryId"
+              value={postState.categoryId}
+              onChange={handleOnChange}
+              className="w-3/4 p-2 bg-gray-900 placeholder:text-sm text-sm "
+            >
+              <option value="">Select Category</option>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+
+            {/* IMAGEN INPUT */}
             <input
               type="file"
               name="file"
