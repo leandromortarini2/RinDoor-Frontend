@@ -39,8 +39,8 @@ const works = () => {
   };
   const filterWorksPrice = (min = 0, max = 99999999) => {
     let params1 = params;
-    params1.minPrice = min.toString();
-    params1.maxPrice = max.toString();
+    params1.minPrice = min;
+    params1.maxPrice = max;
     setParams(params1);
     console.log(params1);
     getWorks(params1)
