@@ -144,7 +144,7 @@ const CreateJob = () => {
               name="categoryId"
               value={postState.categoryId}
               onChange={handleOnChange}
-              className="w-3/4 p-2 bg-gray-900 placeholder:text-sm text-sm "
+              className="w-3/4 p-2 bg-gray-900 placeholder:text-sm text-sm border-b-2 border-yellow-500"
             >
               <option value="">Select Category</option>
               {categories.map((category) => (

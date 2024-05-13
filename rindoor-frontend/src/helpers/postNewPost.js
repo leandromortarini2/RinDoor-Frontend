@@ -1,13 +1,10 @@
 import axios from "axios";
 
-const JOBS_URL = process.env.JOBS_URL;
+const JOBS_URL = process.env.NEXT_PUBLIC_API_URL_JOBS;
 
 export const postNewPublic = async (State) => {
   try {
-    const response = await axios.post(
-      "https://rindoor-backend.onrender.com/jobs",
-      State
-    );
+    const response = await axios.post(JOBS_URL, State);
 
     return response.data;
   } catch (error) {
