@@ -18,6 +18,7 @@ function ProfileClient() {
             alt={user.name}
             className="w-40 h-40 rounded-full border-yellow-500 border-4"
           />
+
           <div>
             <h2 className="text-yellow-500 text-5xl font-bold">{user.name}</h2>
             <p className="text-white text-2xl font-semibold">{user.email}</p>
