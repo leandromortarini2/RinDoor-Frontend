@@ -8,8 +8,8 @@ const CreateJob = () => {
     name: "",
     description: "",
     base_price: "",
-    categoryId: "5cf79221-4ecf-4765-b05e-db5dce9dd3ec",
-    userId: "cf804394-620e-4108-bafe-64be9c662a0e",
+    categoryId: "278e5cc8-a4c1-4505-b294-aa1bb7df6de2",
+    userId: "e67b6e98-dfd6-4e61-89fb-4d02f7d7940b",
     file: null,
   });
 
